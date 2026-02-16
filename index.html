@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <!-- SEO -->
+  <title>Explorador de Artes · Musicala</title>
+  <meta name="description" content="Explorador de Artes · Musicala — descubre música, danzas, artes plásticas y teatro de forma interactiva." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Explorador de Artes · Musicala" />
+  <meta property="og:description" content="Descubre música, danzas, artes plásticas y teatro. Filtra por etapa, objetivo y modalidad." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Explorador de Artes · Musicala" />
+  <meta name="twitter:description" content="Explora artes en Musicala y pide info por WhatsApp." />
+  <meta name="twitter:image" content="assets/logo.png" />
+
+  <!-- Light only (regla Musicala) -->
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+  <!-- Performance niceties -->
+  <link rel="preconnect" href="https://wa.me" />
+  <link rel="dns-prefetch" href="https://wa.me" />
+
+  <!-- Preload logo (mejora percepción) -->
+  <link rel="preload" as="image" href="assets/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="topbar" role="banner">
+    <!-- Brand -->
+    <div class="brand" aria-label="Marca Musicala">
+      <img class="brand-logo" src="assets/logo.png" alt="Musicala" width="44" height="44" />
+      <div class="brand-txt">
+        <strong>Musicala</strong>
+        <span>Explorador de Artes</span>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <nav class="tabs" aria-label="Secciones">
+      <button class="tab is-active" data-view="home" type="button" aria-current="page">Explorar</button>
+      <button class="tab" data-view="music" type="button">Música</button>
+      <button class="tab" data-view="dance" type="button">Danzas</button>
+      <button class="tab" data-view="arts" type="button">Artes Plásticas</button>
+      <button class="tab" data-view="theatre" type="button">Teatro</button>
+    </nav>
+
+    <!-- Actions -->
+    <div class="actions" aria-label="Acciones rápidas">
+      <button class="btn ghost" id="btnRandom" type="button" title="Abrir una opción aleatoria">
+        Sorpréndeme
+      </button>
+      <button class="btn" id="btnCTA" type="button" title="Ir a WhatsApp de Musicala">
+        Quiero info
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="layout" role="main">
+    <!-- Left Rail -->
+    <aside class="rail" aria-label="Filtros y búsqueda">
+      <div class="card">
+        <h3>Encuentra tu ruta ✨</h3>
+        <p class="muted">Filtra por etapa, objetivo o modalidad y te mostramos opciones claras.</p>
+
+        <div class="filters">
+          <div class="field">
+            <label>Etapa</label>
+            <div class="chips" id="chipStage" role="group" aria-label="Filtro por etapa"></div>
+          </div>
+
+          <div class="field">
+            <label>Objetivo</label>
+            <div class="chips" id="chipGoal" role="group" aria-label="Filtro por objetivo"></div>
+          </div>
+
+          <div class="field">
+            <label>Modalidad</label>
+            <div class="chips" id="chipMode" role="group" aria-label="Filtro por modalidad"></div>
+          </div>
+
+          <div class="field">
+            <label for="q">Búsqueda</label>
+            <input
+              id="q"
+              type="search"
+              placeholder="Ej: guitarra, ballet, acuarela…"
+              autocomplete="off"
+              inputmode="search"
+              aria-label="Buscar opciones del explorador"
+            />
+          </div>
+
+          <button class="btn wide" id="btnClear" type="button">Limpiar filtros</button>
+        </div>
+      </div>
+
+      <div class="card soft">
+        <h3>¿Qué es Musicala?</h3>
+        <p class="muted">
+          Una escuela de artes donde puedes aprender música, danzas, artes plásticas y teatro
+          con procesos humanos, creativos y con objetivos claros.
+        </p>
+
+        <ul class="list">
+          <li>Desde cero hasta avanzado</li>
+          <li>Para niños, teens y adultos</li>
+          <li>Clases en sede, hogar y virtual</li>
+        </ul>
+
+        <div class="actions" style="margin-top:12px;">
+          <button class="btn wide" id="btnCTA2" type="button" title="Ir a WhatsApp de Musicala">
+            Hablar por WhatsApp
+          </button>
+        </div>
+
+        <p class="muted" style="margin-top:10px; font-size:12px;">
+          WhatsApp: <span style="font-weight:800; color:var(--bach);">319 352 9475</span>
+        </p>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <section class="content" aria-label="Contenido principal">
+      <div id="view" class="view" aria-live="polite" aria-busy="false"></div>
+
+      <footer class="card soft" style="margin-top:14px;">
+        <div style="display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+          <div>
+            <strong style="color:var(--bach);">Musicala</strong>
+            <span class="muted">· Artes para vivir y crear</span>
+          </div>
+          <div class="muted" style="font-size:12px;">
+            Hecho para humanos que sí quieren entender qué aprenden 😌
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="1"></div>
+
+    <div
+      class="modal__panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalMeta"
+    >
+      <div class="modal__head">
+        <div>
+          <h2 id="modalTitle"></h2>
+          <p id="modalMeta" class="muted"></p>
+        </div>
+        <button class="iconbtn" data-close="1" aria-label="Cerrar" type="button">✕</button>
+      </div>
+
+      <div class="modal__body">
+        <img id="modalImg" class="modal__img" alt="" />
+        <div id="modalBody"></div>
+      </div>
+
+      <div class="modal__foot">
+        <button class="btn ghost" data-close="1" type="button">Cerrar</button>
+        <button class="btn" id="modalCTA" type="button">Quiero aprender esto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data + App (defer para no bloquear render) -->
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
