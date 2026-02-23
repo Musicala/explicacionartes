@@ -18,7 +18,12 @@
       music: "assets/musica.png",
       dance: "assets/danzas.png",
       arts: "assets/tecnicasmixtas.png",
+
+      // OJO: app.js usa getAsset("theatre") (llave: theatre)
       theatre: "assets/teatro.png",
+
+      // Alias de compatibilidad (por si en algún lugar quedó "teatro")
+      teatro: "assets/teatro.png",
 
       // ===== Música (instrumentos / voces) =====
       flautaDulce: "assets/flautadulce.png",
@@ -489,6 +494,22 @@
         mode: ["Sede", "Hogar"],
         goal: ["Creatividad", "Formación"],
       },
+
+      // ✅ Nuevo (ya tenías el asset, faltaba el item)
+      {
+        id: "arts-porcelanicron",
+        area: "Artes Plásticas",
+        category: "Escultura",
+        name: "Porcelanicrón",
+        tags: ["Escultura", "Detalles", "Manualidades"],
+        img: null,
+        learn: ["Modelado fino", "Texturas", "Piezas decorativas"],
+        forWho: ["Niños", "Teens", "Adultos"],
+        mode: ["Sede", "Hogar"],
+        goal: ["Creatividad", "Hobby"],
+      },
+
+      // ✅ AQUÍ va tu mejora pedida
       {
         id: "arts-mixtas",
         area: "Artes Plásticas",
@@ -496,7 +517,15 @@
         name: "Técnicas mixtas",
         tags: ["Mixtas", "Experimental", "3D"],
         img: null,
-        learn: ["Composición", "Exploración de materiales", "Proyecto personal"],
+        learn: [
+          "Un enfoque integral que integra dibujo, pintura y construcción creativa en un mismo proceso artístico.",
+          "Creemos que el arte no se aprende por partes, sino explorando recursos expresivos de forma consciente y estructurada.",
+          "✏️ Dibujo y expresión gráfica: proporción, trazo, composición y observación para fortalecer bases sólidas.",
+          "🎨 Pintura y teoría del color: acrílico, acuarela y mezclas cromáticas entendiendo el color como herramienta expresiva y comunicativa.",
+          "🖌️ Manualidades y construcción creativa: materiales diversos para desarrollar textura, volumen, diseño y pensamiento tridimensional.",
+          "Metodología: desarrollo técnico progresivo, integración de materiales en proyectos completos, obras individuales y colectivas, y acompañamiento personalizado.",
+          "Resultados: habilidades integrales, mayor seguridad creativa, capacidad de combinar técnicas en una sola obra y participación en muestras/exposiciones."
+        ],
         forWho: ["Teens", "Adultos"],
         mode: ["Sede", "Hogar"],
         goal: ["Creatividad"],
@@ -559,9 +588,11 @@
     "arts-oleo": A.oleo,
     "arts-acrilico": A.acrilico,
     "arts-arcilla": A.arcilla,
+    "arts-porcelanicron": A.porcelana,
     "arts-mixtas": A.mixtas,
 
-    "theatre-acting": A.teatro,
+    // ✅ FIX: antes decía A.teatro (no existía). Ahora sí está bien.
+    "theatre-acting": A.theatre || A.teatro || A.fallback,
   };
 
   // Set img (si falta, se deja null y app.js usará fallback por área)
